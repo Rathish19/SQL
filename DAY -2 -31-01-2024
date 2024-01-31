@@ -1,0 +1,79 @@
+select avg(scost) from Software where dev_in='pascal';
+
+select name,FLOOR(DATEDIFF(NOW(), 'dob')/365) AS age FROM programmer;
+
+select studies.name, studies.course,floor(datediff(now(), `dob`)/365) as age
+from studies
+join programmer
+on studies.name = programmer.name
+where course = 'dcs';
+
+select max(sold) as max_sold
+from software;
+
+select name, dob from programmer where month(dob) = 1;
+
+select min(ccost) from studies;
+
+Select count(name) from studies where course ='pgdca';
+
+select sum(sold * scost ) from software where dev_in ='c';
+
+select * from software where name ='ramesh' ;
+
+select count(name) from studies where splace ='sabhari';
+
+select * from software where (scost *sold) > 20000;
+
+select name , round(dcost/scost) as soldreturn from software;
+
+select max(scost) from software where Dev_in like 'basic';
+
+select * from software where Dcost < (scost *sold);
+
+select count(name) as no_of_Dbase from software where dev_in like 'Dbase';
+
+select count(name) from studies where splace ='pragathi';
+
+select count(name) from studies where ccost between 5000 and 10000;
+
+select avg(ccost) from studies;
+
+select * from programmer where prof1='c' or prof2='c';
+
+select count(name) from programmer where prof1='cobol' or prof2='pascal' or prof1 ='pascal' or 
+prof2='cobol';
+
+select count(name) from programmer where not prof1='c' and not prof1 = 'pascal' and not prof2 = 'c' 
+and not prof2= 'pascal' ;
+
+select max(floor(datediff(now(),`dob`)/365) ) as max_age from programmer ;
+
+select avg(floor(datediff(`dob`,now())/365) ) as average_age from programmer where sex ='f' ;
+
+select name,(floor(datediff(now() ,`doj`)/365) ) as experience from programmer order by name desc;
+
+select name from programmer where month (dob) = month(sysdate());
+
+select count(name) from programmer where sex='f';
+
+select prof1,prof2 from programmer where sex='m';
+
+select avg(salary) from programmer ;
+
+select name from programmer where salary between 2000 and 4000;
+
+select * from programmer where prof1 not in ('clipper','cobol','pascal') and prof2 not in 
+('clipper','cobol','pascal'); 
+
+select count(name) from programmer where sex='f' and ((sysdate() - dob)/365) >24 and (prof1 ='c' 
+or prof2 ='c') ;
+
+select name from programmer where 0< DAYOFMONTH(`dob`) - DAYOFMONTH(sysdate())<7 and 
+month(`dob`) = month(sysdate());
+
+select * from programmer where ((sysdate() - `doj`)/365)<1 ;
+
+select * from programmer where ((sysdate() - `doj`)/365)=2;
+
+select *,dcost-(scost*sold) as loss_amount from software where (scost*sold)<dcost ;
